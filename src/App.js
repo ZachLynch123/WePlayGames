@@ -6,7 +6,7 @@ const friendsListEndpoint = `/ISteamUser/GetFriendList/v0001/?key=${steamApiKey}
 
 const gameListEndpoint = `/IPlayerService/GetOwnedGames/v0001/?key=${steamApiKey}&steamid=76561198036778665&include_appinfo=1&format=json`;
 
-const incompleteUserEndpoint = `/ISteamUser/GetPlayerSummaries/v0002/?key=${steamApiKey}&steamids=76561197963729309`
+const incompleteUserEndpoint = `/ISteamUser/GetPlayerSummaries/v0002/?key=${steamApiKey}&steamids=`
 
 
 function App() {
@@ -35,10 +35,11 @@ function App() {
     })
   }
 
-  // get's user
-  function getPlayerSummaries(userid){
-    console.log(userid);
-    const userEndpoint = incompleteUserEndpoint
+  // get's user summary based on steamID passed in
+  // ID must be converted to string before added to endpoint
+ 
+  function getPlayerSummaries(steamID){
+    const userEndpoint = incompleteUserEndpoint + steamID
     fetch(userEndpoint, {
       crossDomain: true, 
       method: 'GET',
@@ -50,7 +51,8 @@ function App() {
     })
   }
 
-  getPlayerSummaries(76561197963729309);
+// returns "Koala"
+  getPlayerSummaries("76561197995174904");
 
   return (
     <div className="App">
