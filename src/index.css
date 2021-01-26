@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.profile-box, .friend-profile {
+  width: 15%;
+}
+
+.profile-box {
+  border: 2px solid #f00;
+  position: absolute;
+  right: 0;
+}
+
+.friend-profile {
+  border: 2px solid #0f0;
+}
+
+img {
+  width: 100%;
+}
