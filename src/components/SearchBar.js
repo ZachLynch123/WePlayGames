@@ -11,18 +11,38 @@
 // }
 
 import React from 'react';
+import friendSearchedData from './data.js';
 
-const SearchBar = ({keyword,setKeyword}) => {
-  const BarStyling = {width:"20rem",background:"#F2F1F9", border:"none", padding:"0.5rem"};
-  return (
-    <input 
-     style={BarStyling}
-     key="random1"
-     value={keyword}
-     placeholder={"search for a friend"}
-     onChange={(e) => setKeyword(e.target.value)}
-    />
-  );
+const BarStyling = {width:"20rem",background:"#F2F1F9", border:"none", padding:"0.5rem"};
+let keyword = ''
+class SearchBar extends React.Component {
+
+  // return(
+  //   <>
+  //   {friendSearchedData.map((data, index) => {
+  //     if (data) {
+  //       return (
+  //         // 
+  //         <h1>{data.username}</h1>
+  //       );
+  //     }
+  //     return null;
+  //   })}
+  //   </>
+  // );
+  
+  
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
 }
 
 export default SearchBar
