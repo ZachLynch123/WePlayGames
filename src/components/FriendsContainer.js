@@ -3,10 +3,10 @@ import FriendList from "./FriendList";
 
 class FriendsContainer extends React.Component {
   render() {
-    let listOfAllFriends = this.props.listOfFriends.data[0]
+    let listOfAllFriends = this.props.listOfFriends.data 
     return (
       <div className="friends-container">
-        <FriendList friends={listOfAllFriends.data}/>
+        <FriendList friends={listOfAllFriends}/>
         
       </div>
     );

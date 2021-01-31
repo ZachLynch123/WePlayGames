@@ -7,19 +7,9 @@ const friendsListEndpoint = `/ISteamUser/GetFriendList/v0001/?key=${steamApiKey}
 
 export default class FriendList extends React.Component {
 
-    
 
-    getFriendList(){
-        fetch(friendsListEndpoint, {
-          crossDomain: true, 
-          method: 'GET',
-          headers: {'Content-Type': 'application/json'},
-        })
-        .then(res => res.json())
-        .then(resJson => {
-          console.log(resJson);
-        })
-      }
+
+    
 
       
     
@@ -40,6 +30,9 @@ export default class FriendList extends React.Component {
     render() {
         return (
         <div>
+          {this.props.friends.map(data => {
+            <Friend friend={data.steamid} />
+          })}
             {/* {this.getFriendList()} */}
             {/* {this.generateSearchedFriend()} */}
         </div>
