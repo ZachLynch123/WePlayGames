@@ -40,8 +40,8 @@ export default class FriendList extends React.Component {
     render() {
         return (
         <div>
-            {this.getFriendList()}
-            {this.generateSearchedFriend()}
+            {/* {this.getFriendList()} */}
+            {/* {this.generateSearchedFriend()} */}
         </div>
         ) 
 

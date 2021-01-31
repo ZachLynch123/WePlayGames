@@ -19,7 +19,7 @@ export default class SearchBarContainer extends React.Component {
     render() {
         return (
             <h1>
-                <SearchBar />
+                {/* <SearchBar /> */}
             </h1>
         )
     }
