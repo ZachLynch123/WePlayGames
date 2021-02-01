@@ -23,7 +23,6 @@ export default class Friend extends React.Component {
     .then(res => res.json())
     .then(json => {
       this.setState({data: json.response.players[0]})
-      console.log(this.state.data);
     })
   }
   
