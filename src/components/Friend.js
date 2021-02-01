@@ -1,25 +1,39 @@
 import React from "react";
 // import FriendList from "./FriendList";
 // import logo from "logo.svg";
+import steamApiKey from '../keys/keys'
 
-class Friend extends React.Component {
+export default class Friend extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      data: []
+    }
+  }
+
+
+  componentDidMount(){
+    const userEndpoint = `/ISteamUser/GetPlayerSummaries/v0002/?key=${steamApiKey}&steamids=` + this.props.friend
+    fetch(userEndpoint, {
+      crossDomain: true, 
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'},
+    })
+    .then(res => res.json())
+    .then(json => {
+      this.setState({data: json.response.players[0]})
+      console.log(this.state.data);
+    })
+  }
   
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     profilePic: ``,
-  //     username: "TestUserName"
-  //   }
-  // }
-
   render() {
+    const friend = this.state.data
     return (
       <div className="friend-profile">
-        <img src={ this.props.profilePic } alt="" />
-        <h3> { this.props.username }</h3>
+        <img id="profile_picture" src={`${friend.avatarmedium}`}></img>
+        <p>{friend.personaname}</p>
       </div>
     );
   }
 }
-
-export default Friend;

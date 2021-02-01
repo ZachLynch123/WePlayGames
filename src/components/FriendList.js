@@ -7,34 +7,13 @@ const friendsListEndpoint = `/ISteamUser/GetFriendList/v0001/?key=${steamApiKey}
 
 export default class FriendList extends React.Component {
 
-
-
-    
-
-      
-    
-    
-    generateSearchedFriend = () => {
-        console.log(friendListData)
-    
-        return friendListData.map((friend) => 
-        
-        <Friend 
-            username={friend.username}
-            profilePic={friend.profilePic}
-        />
-
-        )
-    };
     
     render() {
         return (
         <div>
           {this.props.friends.map(data => {
-            <Friend friend={data.steamid} />
+          return <Friend friend={data.steamid.toString()} />
           })}
-            {/* {this.getFriendList()} */}
-            {/* {this.generateSearchedFriend()} */}
         </div>
         ) 
 

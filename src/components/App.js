@@ -31,7 +31,7 @@ class App extends React.Component {
         return (
           <div>
             <UserBox /> 
-            <FriendsContainer listOfFriends={this.state} />
+            <FriendsContainer />
             <SearchBarContainer />
           </div>
         );
